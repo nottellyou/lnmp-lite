@@ -14,8 +14,7 @@
 # Description:       starts nginx using start-stop-daemon
 ### END INIT INFO
 
-# Author:   licess
-# website:  http://lnmp.org
+# website:  http://hdwo.net
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 NAME=nginx

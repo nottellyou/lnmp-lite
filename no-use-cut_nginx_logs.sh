@@ -1,9 +1,9 @@
 #!/bin/bash
-#function:cut nginx log files for lnmp v0.5 and v0.6
-#author: http://lnmp.org
+#function:cut nginx log files
+#author: http://hdwo.net
 
 #set the path to nginx log files
-log_files_path="/home/wwwlogs/"
+log_files_path="/home/logs/"
 log_files_dir=${log_files_path}$(date -d "yesterday" +"%Y")/$(date -d "yesterday" +"%m")
 #set nginx log files you want to cut
 log_files_name=(access vpser licess)
@@ -25,6 +25,6 @@ mv ${log_files_path}${log_files_name[i]}.log ${log_files_dir}/${log_files_name[i
 done
 
 #delete 30 days ago nginx log files
-find $log_files_path -mtime +$save_days -exec rm -rf {} \; 
+find $log_files_path -mtime +$save_days -exec rm -rf {} \;
 
 $nginx_sbin -s reload

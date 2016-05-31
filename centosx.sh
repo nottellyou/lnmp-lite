@@ -462,7 +462,7 @@ function InstallNginx()
 	ldconfig
 
 	tar zxf tengine-$TENGINE_VER.tar.gz
-	cd tengine-2.1.1/
+	cd tengine-$TENGINE_VER/
 	./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6  --with-jemalloc
 	make && make install
 	cd ../
@@ -513,7 +513,7 @@ eof
 	cd $cur_dir
 	if [ -s p.php ]; then
 	  	cp p.php /home/wwwroot/default/p.php
-	  else
+	else
 	  	tar zxvf p.tar.gz
 		cp p.php /home/wwwroot/default/p.php
 	fi
@@ -530,7 +530,7 @@ function AddAndStartup()
 	echo "Download new nginx init.d file......"
 	if [ -s init.d.nginx ]; then
 	  echo "init.d.nginx [found]"
-	  else
+	else
 	  echo "Error: init.d.nginx not found!!!download now......"
 	  wget -c http://soft.vpser.net/lnmp/ext/init.d.nginx
 	fi

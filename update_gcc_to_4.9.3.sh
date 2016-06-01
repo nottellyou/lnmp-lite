@@ -10,6 +10,10 @@ fi
 
 clear
 
+echo "don't update GCC if know it"
+exit 1
+
+
 LNMP_LITE_VER=2.0.0
 GCC_VER=4.9.3
 

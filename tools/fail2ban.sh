@@ -17,8 +17,6 @@ fi
 FAIL_2_BAN_VER=0.8.14
 
 yum install python iptables tcp-wrapper shorewall Gamin gamin-python sendmail logwatch rsyslog -y
-service rsyslog restart
-
 
 echo "Downloading..."
 cd ../src
@@ -32,8 +30,10 @@ sed -i 's/# \[sshd\]/\[sshd\]/g' /etc/fail2ban/jail.conf
 sed -i 's/# enabled = true/enabled = true/g' /etc/fail2ban/jail.conf
 sed -i 's#%(sshd_log)s#/var/log/secure#g' /etc/fail2ban/jail.conf
 
-cat >>/etc/fail2ban/jail.conf<<eof
 
+if [ -s /usr/local/pureftpd/etc/pure-ftpd.conf.tttttttttt ]; then
+cat >>/etc/fail2ban/jail.conf<<eof
+######以下三段需要手工来改
 [ssh-iptables]
 enabled = true
 filter  = sshd
@@ -43,11 +43,6 @@ logpath = /var/log/secure
 maxretry = 3
 findtime = 300
 bantime = 864000
-eof
-
-
-if [ -s /usr/local/pureftpd/etc/pure-ftpd.conf ]; then
-cat >>/etc/fail2ban/jail.conf<<eof
 
 [pure-ftpd]
 enabled = true
@@ -84,7 +79,7 @@ fi
 
 
 #############
-sed -i 's/logtarget = SYSLOG/logtarget = /var/log/fail2ban.log/g' /etc/fail2ban/fail2ban.conf
+#sed -i 's/logtarget = SYSLOG/logtarget = /var/log/fail2ban.log/g' /etc/fail2ban/fail2ban.conf
 
 echo "Copy init files..."
 mkdir /var/run/fail2ban

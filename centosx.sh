@@ -11,10 +11,10 @@ fi
 clear
 
 LNMP_LITE_VER=2.0.0
-ADMINER_VER=4.2.3
+ADMINER_VER=4.2.5
 PHP_VER=7.0.7
 MYSQL_VER=5.5.28
-TENGINE_VER=2.1.2
+TENGINE_VER=2.1.1
 JEMALLOC_VER=3.6.0
 
 echo "========================================================================="
@@ -528,7 +528,7 @@ function AddAndStartup()
 {
 	echo "============================add nginx and php-fpm on startup============================"
 	echo "Download new nginx init.d file......"
-	if [ -s init.d.nginx ]; then
+	if [ -s conf/init.d.nginx ]; then
 	  echo "init.d.nginx [found]"
 	else
 	  echo "Error: init.d.nginx not found!!!download now......"

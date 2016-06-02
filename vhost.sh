@@ -28,13 +28,13 @@ if [ "$1" != "--help" ]; then
 	if [ ! -f "/usr/local/nginx/conf/vhost/$domain.conf" ]; then
 	echo "==========================="
 	echo "domain=$domain"
-	echo "===========================" 
+	echo "==========================="
 	else
 	echo "==========================="
 	echo "$domain is exist!"
-	echo "==========================="	
+	echo "==========================="
 	fi
-	
+
 	echo "Do you want to add more domain name? (y/n)"
 	read add_more_domainame
 
@@ -141,7 +141,7 @@ server
 		root  $vhostdir;
 
 		limit_req zone=req_one burst=5 nodelay;
-		
+
 		include $rewrite.conf;
 		#error_page   404   /404.html;
 		location ~ [^/]\.php(/|$)

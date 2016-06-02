@@ -11,7 +11,7 @@ echo; echo -n 'Downloading source files...'
 
 cp ../conf/ddos.conf /usr/local/ddos/ddos.conf
 
-cp ../conf/ignore.ip.list /usr/local/ddos/ignore.ip.list 
+cp ../conf/ignore.ip.list /usr/local/ddos/ignore.ip.list
 /sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:" >>  /usr/local/ddos/ignore.ip.list;
 chattr +i /usr/local/ddos/ignore.ip.list;
 

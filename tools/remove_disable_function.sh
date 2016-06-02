@@ -20,7 +20,7 @@ echo "|             Usage: ./remove_disable_function.sh                   |"
 echo "+-------------------------------------------------------------------+"
 
 cur_dir=$(pwd)
-        
+
 ver=""
 echo "Remove all php disable function please type: 1"
 echo "Only remove scandir function please type: 2"
@@ -35,7 +35,7 @@ fi
 
 if [ "$ver" = "1" ]; then
     echo "You will remove all php disable functions."
-elif [ "$ver" = "2" ]; then 
+elif [ "$ver" = "2" ]; then
     echo "You will remove scandir php disable function."
 elif [ "$ver" = "3" ]; then
     echo "You will remove exec php disable_function."
@@ -61,7 +61,7 @@ function remove_all_disable_function()
     sed -i 's/disable_functions =.*/disable_functions =/g' /usr/local/php/etc/php.ini
 }
 
-function remove_scandir_function() 
+function remove_scandir_function()
 {
     sed -i 's/,scandir//g' /usr/local/php/etc/php.ini
 }
@@ -73,7 +73,7 @@ function remove_exec_function()
 
 if [ "$ver" = "1" ]; then
     remove_all_disable_function
-elif [ "$ver" = "2" ]; then 
+elif [ "$ver" = "2" ]; then
     remove_scandir_function
 elif [ "$ver" = "3" ]; then
     remove_exec_function

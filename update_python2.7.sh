@@ -20,7 +20,7 @@ PYTHON_VER=2.7.11
 
 wget --no-check-certificate https://python.org/ftp/python/$PYTHON_VER/Python-$PYTHON_VER.tgz
 
-tar xzf Python-$PYTHON_VER.tar.bz2 
+tar xzf Python-$PYTHON_VER.tar.bz2
 
 cd Python-$PYTHON_VER/
 

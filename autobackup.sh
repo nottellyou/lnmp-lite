@@ -25,7 +25,7 @@ web3=zblog_web_$(date +%Y-%m-%d).zip
 
 #压缩sql
 #cd /home/backup/
-#tar zcf /home/backup/sql_$(date +%Y-%m-%d).tar.gz    $data1  $data2 
+#tar zcf /home/backup/sql_$(date +%Y-%m-%d).tar.gz    $data1  $data2
 #tar zcf /home/backup/sql_$(date +%Y-%m-%d).tar.gz    $data1  $data2 $data4  $data3
 
 #压缩网站数据
@@ -33,7 +33,7 @@ web3=zblog_web_$(date +%Y-%m-%d).zip
 #tar zcf /home/backup/$web1  *
 
 cd /home/wwwroot/hdwo.net/
-zip -q -r /home/backup/$web2  * 
+zip -q -r /home/backup/$web2  *
 rm  -f  $data1
 rm  -f  $data2
 
@@ -47,7 +47,7 @@ zip -q -r /home/backup/$web3  *
 rm  -f  /home/wwwroot/jia.hdwo.net/$data3
 
 find  /home/backup/  -mtime +20  -name "hdwo.net_web*"  -exec  rm  -rf {} \;
-find  /home/backup/  -mtime +20  -name "zblog_web*"     -exec  rm  -rf {} \; 
+find  /home/backup/  -mtime +20  -name "zblog_web*"     -exec  rm  -rf {} \;
 
 ##################################################
 #30  4  *  *  * /root/autobackup.sh

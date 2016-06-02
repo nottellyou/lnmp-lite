@@ -1,10 +1,10 @@
 #! /bin/bash
-#   
-# memcached:    MemCached Daemon   
-#   
-# chkconfig:    - 90 25  
-# description:  MemCached Daemon   
-#   
+#
+# memcached:    MemCached Daemon
+#
+# chkconfig:    - 90 25
+# description:  MemCached Daemon
+#
 ### BEGIN INIT INFO
 # Provides:          memcached
 # Required-Start:    $syslog

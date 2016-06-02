@@ -35,9 +35,9 @@ echo "Start DenyHosts..."
 
 
 cd /etc/init.d
-ln -s /usr/share/denyhosts/daemon-control denyhosts 
+ln -s /usr/share/denyhosts/daemon-control denyhosts
 chkconfig --add denyhosts
-chkconfig --level 2345 denyhosts on 
+chkconfig --level 2345 denyhosts on
 
 #sed -i '/STATE_LOCK_EXISTS\ \=\ \-2/aif not os.path.exists("/var/lock/subsys"): os.makedirs("/var/lock/subsys")' /etc/init.d/denyhosts
 

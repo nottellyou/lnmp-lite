@@ -439,6 +439,7 @@ EOF
 
 	echo "Copy php-fpm init.d file......"
 	cp $cur_dir/php-$PHP_VER/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+    sed -i 's:php_fpm_PID=\$\{prefix\}/var/run/php-fpm\.pid:php_fpm_PID=\$\{prefix\}/php-fpm\.pid:g' /etc/init.d/php-fpm
 	chmod +x /etc/init.d/php-fpm
 
 	cp $cur_dir/lnmp /root/lnmp
@@ -520,7 +521,7 @@ eof
 
 	cp conf/index.html /home/wwwroot/default/index.html
 	echo "============================Install adminer================================="
-	mv adminer-$ADMINER_VER-mysql.php /home/wwwroot/default/adminer-$ADMINER_VER-mysql.php
+	mv adminer-$ADMINER_VER-mysql.php /home/wwwroot/default/adminer.php
 	echo "============================adminer install completed================================="
 }
 

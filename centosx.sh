@@ -464,7 +464,7 @@ function InstallNginx()
 
 	tar zxf tengine-$TENGINE_VER.tar.gz
 	cd tengine-$TENGINE_VER/
-	./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module=shared --with-http_gzip_static_module --with-http_realip_module --with-http_concat_module --with-http_sysguard_module=shared  --with-ipv6  --with-jemalloc
+	./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-http_realip_module --with-http_concat_module --with-http_sysguard_module=shared  --with-ipv6  --with-jemalloc
 	make && make install
 	cd ../
 

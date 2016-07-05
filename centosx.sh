@@ -467,7 +467,7 @@ function InstallNginx()
 	if [ $TENGINE_VER = '2.1.1' ]; then
 		sed -i 's#/x-javascripts#/javascripts#g' src/http/modules/ngx_http_concat_module.c
 	fi
-	./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-http_realip_module --with-http_concat_module --with-http_sysguard_module=shared  --with-ipv6  --with-jemalloc
+	./configure --user=www --group=www --prefix=/usr/local/nginx --pid-path=/dev/shm --lock-path=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-http_realip_module --with-http_concat_module --with-http_sysguard_module=shared  --with-ipv6  --with-jemalloc
 	make && make install
 	cd ../
 

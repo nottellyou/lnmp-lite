@@ -378,8 +378,9 @@ function InstallPHP7()
 	#export PHP_AUTOHEADER=/usr/local/autoconf-2.13/bin/autoheader
 	tar zxf php-$PHP_VER.tar.gz
 	cd php-$PHP_VER/
-	./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --enable-opcache --with-fpm-user=www --with-fpm-group=www --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd  --with-pdo-sqlite  --with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath   --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl  --enable-mbregex --enable-mbstring --with-mcrypt --enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --disable-fileinfo --enable-libxml
+	./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --enable-opcache --with-fpm-user=www --with-fpm-group=www  --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd  --with-pdo-sqlite  --with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath   --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl  --enable-mbregex --enable-mbstring --with-mcrypt --enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --disable-fileinfo --enable-libxml
 
+    #--with-mysql=mysqlnd  configure: WARNING: unrecognized options: --with-mysql
 	# --disable-sqlite3
 
 	make ZEND_EXTRA_LIBS='-liconv'
@@ -439,7 +440,7 @@ EOF
 
 	echo "Copy php-fpm init.d file......"
 	cp $cur_dir/php-$PHP_VER/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
-    sed -i 's:php_fpm_PID=\$\{prefix\}/var/run/php-fpm\.pid:php_fpm_PID=\$\{prefix\}/php-fpm\.pid:g' /etc/init.d/php-fpm
+    sed -i 's:php_fpm_PID=${prefix}/var/run/php-fpm\.pid:php_fpm_PID=${prefix}/php-fpm\.pid:g' /etc/init.d/php-fpm
 	chmod +x /etc/init.d/php-fpm
 
 	cp $cur_dir/lnmp /root/lnmp
@@ -465,7 +466,7 @@ function InstallNginx()
 	tar zxf tengine-$TENGINE_VER.tar.gz
 	cd tengine-$TENGINE_VER/
 	if [ $TENGINE_VER = '2.1.1' ]; then
-		sed -i 's#/x-javascripts#/javascripts#g' src/http/modules/ngx_http_concat_module.c
+		sed -i 's#/x-javascript#/javascript#g' src/http/modules/ngx_http_concat_module.c
 	fi
 	./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-http_realip_module --with-http_concat_module --with-http_sysguard_module=shared  --with-ipv6  --with-jemalloc
 	make && make install

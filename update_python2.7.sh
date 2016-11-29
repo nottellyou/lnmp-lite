@@ -11,10 +11,10 @@ fi
 clear
 
 
-echo "don't update python, it will efect yum"
-exit 0
+#echo "don't update python, it will efect yum"
+#exit 0
 
-mv /usr/bin/python /usr/bin/python2.4
+#mv /usr/bin/python /usr/bin/python2.4
 
 PYTHON_VER=2.7.11
 
@@ -30,9 +30,9 @@ make
 
 make install
 
-mv -y /usr/bin/python /usr/bin/python2.4
+#mv -y /usr/bin/python /usr/bin/python2.4
 
-ln -s /usr/local/python27/bin/python /usr/bin/
+ln -s /usr/local/python27/bin/python /usr/bin/python27
 
 #请手工替换sed -i "s@\#\!/usr/bin/python@\#\!/usr/bin/python2\.4@" /usr/bin/yum
 

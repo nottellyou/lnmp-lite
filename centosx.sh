@@ -12,7 +12,7 @@ clear
 
 LNMP_LITE_VER=2.0.0
 ADMINER_VER=4.2.5
-PHP_VER=7.0.7
+PHP_VER=7.0.13
 MYSQL_VER=5.5.28
 TENGINE_VER=2.1.1
 JEMALLOC_VER=3.6.0
@@ -388,6 +388,7 @@ function InstallPHP7()
 	rm -f /usr/bin/php
 	ln -s /usr/local/php/bin/php /usr/bin/php
 	ln -s /usr/local/php/bin/phpize /usr/bin/phpize
+	ln -s /usr/local/php/bin/php-config /usr/bin/php-config
 	ln -s /usr/local/php/sbin/php-fpm /usr/bin/php-fpm
 
 	echo "Copy new php configure file."
@@ -444,7 +445,7 @@ EOF
 
 	cp $cur_dir/lnmp /root/lnmp
 	chmod +x /root/lnmp
-	sed -i 's:/usr/local/php/logs:/usr/local/php/var/run:g' /root/lnmp
+	#sed -i 's:/usr/local/php/logs:/usr/local/php/var/run:g' /root/lnmp
 	echo "============================PHP ${PHP_VER} install completed======================"
 }
 

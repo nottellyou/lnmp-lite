@@ -17,8 +17,8 @@ printf "\n"
 printf "Usage: /root/lnmp {start|stop|reload|restart|kill|status}\n"
 printf "=========================================================================\n"
 
-NGINXPIDFILE=/usr/local/nginx/logs/nginx.pid
-PHPFPMPIDFILE=/usr/local/php/logs/php-fpm.pid
+NGINXPIDFILE=/dev/shm/nginx.pid
+PHPFPMPIDFILE=/usr/local/php/php-fpm.pid
 
 function_start()
 {

@@ -8,22 +8,22 @@ fi
 
 clear
 echo "========================================================================="
-echo "Add Virtual Host for LNMP  ,  Written by Licess "
+echo "Add Virtual Host for LNMP-lite  ,  Written by hdwo.net "
 echo "========================================================================="
-echo "LNMP is a tool to auto-compile & install Nginx+MySQL+PHP on Linux "
+echo "LNMP-lite is a tool to auto-compile & install Nginx+MySQL+PHP on Linux "
 echo "This script is a tool to add virtual host for nginx "
-echo "For more information please visit http://www.lnmp.org/"
+echo "For more information please visit http://hdwo.net/"
 echo ""
 echo "========================================================================="
 
 if [ "$1" != "--help" ]; then
 
 
-	domain="www.lnmp.org"
+	domain="www.hdwo.net"
 	echo "Please input domain:"
-	read -p "(Default domain: www.lnmp.org):" domain
+	read -p "(Default domain: www.hdwo.net):" domain
 	if [ "$domain" = "" ]; then
-		domain="www.lnmp.org"
+		domain="www.hdwo.net"
 	fi
 	if [ ! -f "/usr/local/nginx/conf/vhost/$domain.conf" ]; then
 	echo "==========================="
@@ -40,7 +40,7 @@ if [ "$1" != "--help" ]; then
 
 	if [ "$add_more_domainame" == 'y' ]; then
 
-	  echo "Type domainname,example(bbs.vpser.net forums.vpser.net luntan.vpser.net):"
+	  echo "Type domainname,example(blog.hdwo.net bbs.hdwo.net):"
 	  read moredomain
           echo "==========================="
           echo domain list="$moredomain"
@@ -148,7 +148,7 @@ server
 		{
 			# comment try_files \$uri =404; to enable pathinfo
 			try_files \$uri =404;
-			fastcgi_pass  unix:/tmp/php-cgi.sock;
+			fastcgi_pass  unix:/dev/shm/php-cgi.sock;
 			fastcgi_index index.php;
 			include fastcgi.conf;
 			#include pathinfo.conf;
@@ -188,9 +188,9 @@ echo "Restart Nginx......"
 /usr/local/nginx/sbin/nginx -s reload
 
 echo "========================================================================="
-echo "Add Virtual Host for LNMP  ,  Written by Licess "
+echo "Add Virtual Host for LNMP-lite  ,  Written by hdwo.net "
 echo "========================================================================="
-echo "For more information please visit http://www.lnmp.org/"
+echo "For more information please visit http://hdwo.net/"
 echo ""
 echo "Your domain:$domain"
 echo "Directory of $domain:$vhostdir"

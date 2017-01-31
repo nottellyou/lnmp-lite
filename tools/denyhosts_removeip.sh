@@ -1,8 +1,8 @@
 #!/bin/bash
+# Author:hdwo.net
 # Website:http://hdwo.net
 
-read -p "Input IP(like,127.0.0.1):" HOST
-
+HOST=$1
 if [ -z "${HOST}" ]; then
     echo "Usage:$0 IP"
     exit 1

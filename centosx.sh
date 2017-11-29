@@ -20,7 +20,7 @@ JEMALLOC_VER=3.6.0
 echo "========================================================================="
 echo "LNMP-Lite V${LNMP_LITE_VER} for CentOS Server, Written by hdwo.net"
 echo "========================================================================="
-echo "A tool to auto-compile & install Nginx+MySQL+PHP on CentOS "
+echo "A tool to auto-compile & install Tengine+MySQL+PHP on CentOS "
 echo ""
 echo "For more information please visit http://hdwo.net/"
 echo "========================================================================="
@@ -558,6 +558,7 @@ function AddAndStartup()
 	if [ -s /sbin/iptables ]; then
 		/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 		/sbin/iptables -I INPUT -p tcp --dport 3306 -j DROP
+		/sbin/iptables -I INPUT -p tcp --dport 6379 -j DROP
 		#/sbin/iptables-save  #linodeVPS can't save and this is temporary.
 		/sbin/service iptables save
 	fi
